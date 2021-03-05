@@ -27,8 +27,6 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
     implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
-    implementation group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-joda', version: '2.9.2'
-    implementation group: 'joda-time', name: 'joda-time', version: '2.9.9'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.kafka:spring-kafka-test'
 }
