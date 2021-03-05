@@ -1,4 +1,4 @@
-package com.example.billing.api.configuration;
+package com.example.user.api.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,21 +14,21 @@ public class SwaggerDocumentationConfig {
 
   ApiInfo apiInfo() {
     return new ApiInfoBuilder()
-            .title("Billing API" )
-            .description("Billing API" )
-            .license("Apache 2.0" )
-            .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html" )
-            .termsOfServiceUrl("" )
-            .version("1.0.0" )
-            .contact(new Contact("Joseph", "", "joseph89.dev@gmail.com" ))
+            .title("User API")
+            .description("This is a simple API")
+            .license("Apache 2.0")
+            .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")
+            .termsOfServiceUrl("")
+            .version("1.0.0")
+            .contact(new Contact("joseph","", "joseph89.dev@gmail.com"))
             .build();
   }
 
   @Bean
-  public Docket customImplementation() {
+  public Docket customImplementation(){
     return new Docket(DocumentationType.SWAGGER_2)
             .select()
-            .apis(RequestHandlerSelectors.basePackage("com.example.billing.api" ))
+            .apis(RequestHandlerSelectors.basePackage("com.example.user.api"))
             .build()
             .apiInfo(apiInfo());
   }
