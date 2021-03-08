@@ -1,4 +1,4 @@
-package com.example.billing.api.model;
+package com.example.user.api.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
@@ -8,54 +8,53 @@ import org.springframework.validation.annotation.Validated;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
-import java.util.List;
+import java.math.BigDecimal;
 import java.util.Objects;
 
 @Validated
 @Getter
 @Setter
-public class Bill {
+public class ItemOrder {
 
   @JsonProperty("id")
   @ApiModelProperty(required = true, value = "")
   @NotNull
   private String id = null;
 
-  @JsonProperty("createdDate")
+  @JsonProperty("name")
   @ApiModelProperty(required = true, value = "")
   @NotNull
-  private String createdDate = null;
+  private String name = null;
 
-  @JsonProperty("user")
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
-  @Valid
-  private User user = null;
-
-  @JsonProperty("order")
+  @JsonProperty("amount")
   @ApiModelProperty(required = true, value = "")
   @NotNull
   @Valid
-  private List<ItemOrder> order = new ArrayList<>();
+  private BigDecimal amount = null;
 
-  public Bill id(String id) {
+  @JsonProperty("unitPrice")
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
+  @Valid
+  private BigDecimal unitPrice = null;
+
+  public ItemOrder id(String id) {
     this.id = id;
     return this;
   }
 
-  public Bill createdDate(String createdDate) {
-    this.createdDate = createdDate;
+  public ItemOrder name(String name) {
+    this.name = name;
     return this;
   }
 
-  public Bill order(List<ItemOrder> order) {
-    this.order = order;
+  public ItemOrder amount(BigDecimal amount) {
+    this.amount = amount;
     return this;
   }
 
-  public Bill addOrderItem(ItemOrder orderItem) {
-    this.order.add(orderItem);
+  public ItemOrder unitPrice(BigDecimal unitPrice) {
+    this.unitPrice = unitPrice;
     return this;
   }
 
@@ -67,27 +66,27 @@ public class Bill {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Bill bill = (Bill) o;
-    return Objects.equals(this.id, bill.id) &&
-            Objects.equals(this.createdDate, bill.createdDate) &&
-            Objects.equals(this.user, bill.user) &&
-            Objects.equals(this.order, bill.order);
+    ItemOrder itemOrder = (ItemOrder) o;
+    return Objects.equals(this.id, itemOrder.id) &&
+            Objects.equals(this.name, itemOrder.name) &&
+            Objects.equals(this.amount, itemOrder.amount) &&
+            Objects.equals(this.unitPrice, itemOrder.unitPrice);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createdDate, user, order);
+    return Objects.hash(id, name, amount, unitPrice);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Bill {\n");
+    sb.append("class ItemOrder {\n");
 
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
-    sb.append("    user: ").append(toIndentedString(user)).append("\n");
-    sb.append("    order: ").append(toIndentedString(order)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    unitPrice: ").append(toIndentedString(unitPrice)).append("\n");
     sb.append("}");
     return sb.toString();
   }

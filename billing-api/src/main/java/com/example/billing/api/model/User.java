@@ -1,4 +1,4 @@
-package com.example.user.api.model;
+package com.example.billing.api.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
@@ -14,23 +14,23 @@ import java.util.Objects;
 @Setter
 public class User {
 
-  @JsonProperty("id" )
-  @ApiModelProperty(required = true, value = "" )
+  @JsonProperty("id")
+  @ApiModelProperty(required = true, value = "")
   @NotNull
   private String id = null;
 
-  @JsonProperty("name" )
-  @ApiModelProperty(required = true, value = "" )
+  @JsonProperty("name")
+  @ApiModelProperty(required = true, value = "")
   @NotNull
   private String name = null;
 
-  @JsonProperty("address" )
-  @ApiModelProperty(required = true, value = "" )
+  @JsonProperty("address")
+  @ApiModelProperty(required = true, value = "")
   @NotNull
   private String address = null;
 
-  @JsonProperty("email" )
-  @ApiModelProperty(required = true, value = "" )
+  @JsonProperty("email")
+  @ApiModelProperty(required = true, value = "")
   @NotNull
   private String email = null;
 
@@ -55,7 +55,7 @@ public class User {
   }
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -77,13 +77,13 @@ public class User {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class User {\n" );
+    sb.append("class User {\n");
 
-    sb.append("    id: " ).append(toIndentedString(id)).append("\n" );
-    sb.append("    name: " ).append(toIndentedString(name)).append("\n" );
-    sb.append("    address: " ).append(toIndentedString(address)).append("\n" );
-    sb.append("    email: " ).append(toIndentedString(email)).append("\n" );
-    sb.append("}" );
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    address: ").append(toIndentedString(address)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("}");
     return sb.toString();
   }
 
@@ -91,10 +91,11 @@ public class User {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
-    return o.toString().replace("\n", "\n    " );
+    return o.toString().replace("\n", "\n    ");
   }
+
 }

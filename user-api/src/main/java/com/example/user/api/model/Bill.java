@@ -1,4 +1,4 @@
-package com.example.billing.api.model;
+package com.example.user.api.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
@@ -34,9 +34,9 @@ public class Bill {
   private User user = null;
 
   @JsonProperty("order")
+  @Valid
   @ApiModelProperty(required = true, value = "")
   @NotNull
-  @Valid
   private List<ItemOrder> order = new ArrayList<>();
 
   public Bill id(String id) {
@@ -51,11 +51,6 @@ public class Bill {
 
   public Bill order(List<ItemOrder> order) {
     this.order = order;
-    return this;
-  }
-
-  public Bill addOrderItem(ItemOrder orderItem) {
-    this.order.add(orderItem);
     return this;
   }
 
@@ -102,5 +97,6 @@ public class Bill {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 
 }
