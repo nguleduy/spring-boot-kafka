@@ -7,6 +7,6 @@ COPY ./build.gradle /home/gradle
 RUN gradle build --stacktrace
 
 FROM adoptopenjdk:11-jre-hotspot
-COPY --from=build-env /home/gradle/build/libs/*.jar /app/inventory-api.jar
-EXPOSE 4002
-CMD java -Djava.security.egd=file:/dev/./urandom $JAVA_OPTIONS -jar /app/inventory-api.jar
+COPY --from=build-env /home/gradle/build/libs/*.jar /app/bi-api.jar
+EXPOSE 4003
+CMD java -Djava.security.egd=file:/dev/./urandom $JAVA_OPTIONS -jar /app/bi-api.jar
