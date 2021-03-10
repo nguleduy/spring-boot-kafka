@@ -15,9 +15,8 @@ public class Producer {
   @Autowired
   private KafkaTemplate<String, String> kafkaTemplate;
 
-  public void sendBilling(KafkaMessage kafkaMessage) {
+  public void publishMessage(KafkaMessage kafkaMessage) {
     LOGGER.info("sending payload='{}' to topic='{}'", kafkaMessage.getMessage(), kafkaMessage.getTopic());
-    System.out.println("sending payload='{}' to topic='{}'" );
     kafkaTemplate.send(kafkaMessage.getTopic(), kafkaMessage.getMessage());
   }
 
