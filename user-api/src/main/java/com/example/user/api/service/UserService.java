@@ -11,6 +11,10 @@ public class UserService {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(UserService.class);
 
+  public User getUser(String id) {
+    return new User().id(id).name("Joseph");
+  }
+
   private void createUser(User user) {
     LOGGER.info("Creating user " + user.toString());
   }
