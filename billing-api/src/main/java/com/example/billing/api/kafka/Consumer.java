@@ -22,8 +22,7 @@ public class Consumer {
 
   @KafkaListener(topics = "${kafka.topic.billing-inventory-processed}")
   public void consumeUserCreated(ConsumerRecord<?, ?> consumerRecord) {
-    LOGGER.info(consumerRecord.topic() + "-" + consumerRecord.toString());
-    LOGGER.info("received payload from Consumer Billing='{}'", consumerRecord.value().toString());
+    LOGGER.info("received payload from Consumer Billing='{}' to topic='{}'", consumerRecord.value().toString(), consumerRecord.topic());
     producer.publishMessage(new KafkaMessage(billingGeneratedTopic, consumerRecord.value().toString()));
   }
 

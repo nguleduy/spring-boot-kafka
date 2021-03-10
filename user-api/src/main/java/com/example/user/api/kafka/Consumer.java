@@ -31,7 +31,7 @@ public class Consumer {
 
   @KafkaListener(topics = "${kafka.topic.billing}")
   public void consumeBilling(ConsumerRecord<?, ?> consumerRecord) {
-    LOGGER.info("received payload from Consumer User='{}'", consumerRecord.value().toString());
+    LOGGER.info("received payload from Consumer User='{}' to topic='{}'", consumerRecord.value().toString(), consumerRecord.topic());
     Bill bill = getBill(consumerRecord.value().toString());
     userService.createOrUpdateUser(bill.getUser());
     producer.publishMessage(new KafkaMessage(userCreatedTopic, consumerRecord.value().toString()));
