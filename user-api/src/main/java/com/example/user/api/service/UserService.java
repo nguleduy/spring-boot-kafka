@@ -11,8 +11,12 @@ public class UserService {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(UserService.class);
 
+  private void createUser(User user) {
+    LOGGER.info("Creating user " + user.toString());
+  }
+
   public void createOrUpdateUser(User user) {
-    LOGGER.info("create user " + user.toString());
+    createUser(user);
   }
 
 }
